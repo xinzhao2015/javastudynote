@@ -1,0 +1,14 @@
+{
+    "language":"zh-hans",
+    "plugins":[
+        "chapter-fold",
+        "copy-code-button",
+        "atoc"
+    ],
+    "pluginsConfig":{
+        "atoc":{
+            "addClass":true,
+            "className":"atoc"
+        }
+    }
+}

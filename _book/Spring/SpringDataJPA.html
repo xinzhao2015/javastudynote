@@ -1,0 +1,1148 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>SpringDataJPA · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-atoc/atoc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="SpringBoot.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Linux/">
+            
+                <a href="../Linux/">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Linux/Linux常用命令.html">
+            
+                <a href="../Linux/Linux常用命令.html">
+            
+                    
+                    Linux常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Spring
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="SpringBoot.html">
+            
+                <a href="SpringBoot.html">
+            
+                    
+                    SpringBoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2" data-path="SpringDataJPA.html">
+            
+                <a href="SpringDataJPA.html">
+            
+                    
+                    SpringDataJPA
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >SpringDataJPA</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="springdatajpa">SpringDataJPA</h1>
+<!-- toc -->
+<ul>
+<li><a href="#springdatajpa&#x6982;&#x8FF0;">SpringDataJPA&#x6982;&#x8FF0;</a></li>
+<li><a href="#&#x642D;&#x5EFA;spring-data-jpa&#x7684;&#x5F00;&#x53D1;&#x73AF;&#x5883;">&#x642D;&#x5EFA;Spring Data JPA&#x7684;&#x5F00;&#x53D1;&#x73AF;&#x5883;</a><ul>
+<li><a href="#pom&#x4F9D;&#x8D56;">pom&#x4F9D;&#x8D56;</a></li>
+<li><a href="#&#x6574;&#x5408;spring-data-jpa&#x4E0E;spring">&#x6574;&#x5408;Spring Data JPA&#x4E0E;Spring</a></li>
+<li><a href="#&#x914D;&#x7F6E;&#x5B9E;&#x4F53;&#x7C7B;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;">&#x914D;&#x7F6E;&#x5B9E;&#x4F53;&#x7C7B;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;</a></li>
+</ul>
+</li>
+<li><a href="#&#x4F7F;&#x7528;springdatajpa&#x5B8C;&#x6210;&#x9700;&#x6C42;">&#x4F7F;&#x7528;SpringDataJPA&#x5B8C;&#x6210;&#x9700;&#x6C42;</a><ul>
+<li><a href="#&#x7F16;&#x5199;&#x590D;&#x5408;springdatajpa&#x89C4;&#x8303;&#x7684;dao&#x5C42;&#x63A5;&#x53E3;">&#x7F16;&#x5199;&#x590D;&#x5408;SpringDataJPA&#x89C4;&#x8303;&#x7684;Dao&#x5C42;&#x63A5;&#x53E3;</a></li>
+<li><a href="#&#x5B8C;&#x6210;&#x57FA;&#x672C;&#x7684;crud&#x64CD;&#x4F5C;">&#x5B8C;&#x6210;&#x57FA;&#x672C;&#x7684;CRUD&#x64CD;&#x4F5C;</a></li>
+</ul>
+</li>
+<li><a href="#spring-data-jpa&#x5185;&#x90E8;&#x539F;&#x7406;">Spring Data JPA&#x5185;&#x90E8;&#x539F;&#x7406;</a></li>
+<li><a href="#&#x4F7F;&#x7528;jpqlsql&#x7684;&#x65B9;&#x5F0F;&#x67E5;&#x8BE2;">&#x4F7F;&#x7528;JPQL,SQL&#x7684;&#x65B9;&#x5F0F;&#x67E5;&#x8BE2;</a><ul>
+<li><a href="#jpql&#x65B9;&#x5F0F;">JPQL&#x65B9;&#x5F0F;</a></li>
+<li><a href="#sql&#x65B9;&#x5F0F;">SQL&#x65B9;&#x5F0F;</a></li>
+<li><a href="#&#x65B9;&#x6CD5;&#x547D;&#x540D;&#x89C4;&#x5219;&#x67E5;&#x8BE2;">&#x65B9;&#x6CD5;&#x547D;&#x540D;&#x89C4;&#x5219;&#x67E5;&#x8BE2;</a></li>
+</ul>
+</li>
+<li><a href="#specifications&#x52A8;&#x6001;sql">Specifications&#x52A8;&#x6001;sql</a><ul>
+<li><a href="#&#x6A21;&#x7CCA;&#x67E5;&#x8BE2;">&#x6A21;&#x7CCA;&#x67E5;&#x8BE2;</a></li>
+<li><a href="#&#x5206;&#x9875;&#x67E5;&#x8BE2;">&#x5206;&#x9875;&#x67E5;&#x8BE2;</a></li>
+<li><a href="#cb&#x65B9;&#x6CD5;&#x4E0E;&#x5BF9;&#x5E94;&#x5B57;&#x6BB5;">cb&#x65B9;&#x6CD5;&#x4E0E;&#x5BF9;&#x5E94;&#x5B57;&#x6BB5;</a></li>
+</ul>
+</li>
+<li><a href="#&#x591A;&#x8868;&#x64CD;&#x4F5C;">&#x591A;&#x8868;&#x64CD;&#x4F5C;</a><ul>
+<li><a href="#&#x5728;jpa&#x4E2D;&#x8868;&#x5173;&#x7CFB;&#x7684;&#x5206;&#x6790;&#x6B65;&#x9AA4;">&#x5728;JPA&#x4E2D;&#x8868;&#x5173;&#x7CFB;&#x7684;&#x5206;&#x6790;&#x6B65;&#x9AA4;</a></li>
+<li><a href="#jpa&#x4E2D;&#x7684;&#x4E00;&#x5BF9;&#x591A;">JPA&#x4E2D;&#x7684;&#x4E00;&#x5BF9;&#x591A;</a><ul>
+<li><a href="#&#x793A;&#x4F8B;&#x5206;&#x6790;">&#x793A;&#x4F8B;&#x5206;&#x6790;</a></li>
+<li><a href="#&#x8868;&#x5173;&#x7CFB;&#x5EFA;&#x7ACB;">&#x8868;&#x5173;&#x7CFB;&#x5EFA;&#x7ACB;</a></li>
+<li><a href="#&#x5B9E;&#x4F53;&#x7C7B;&#x5173;&#x7CFB;&#x7684;&#x5EFA;&#x7ACB;&#x4EE5;&#x53CA;&#x6620;&#x5C04;&#x914D;&#x7F6E;">&#x5B9E;&#x4F53;&#x7C7B;&#x5173;&#x7CFB;&#x7684;&#x5EFA;&#x7ACB;&#x4EE5;&#x53CA;&#x6620;&#x5C04;&#x914D;&#x7F6E;</a></li>
+<li><a href="#&#x6620;&#x5C04;&#x7684;&#x6CE8;&#x89E3;&#x8BF4;&#x660E;">&#x6620;&#x5C04;&#x7684;&#x6CE8;&#x89E3;&#x8BF4;&#x660E;</a></li>
+<li><a href="#&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x64CD;&#x4F5C;">&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x64CD;&#x4F5C;</a><ul>
+<li><a href="#&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x6DFB;&#x52A0;">&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x6DFB;&#x52A0;</a></li>
+<li><a href="#&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x5220;&#x9664;">&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x5220;&#x9664;</a><ul>
+<li><a href="#&#x7EA7;&#x8054;&#x5220;&#x9664;">&#x7EA7;&#x8054;&#x5220;&#x9664;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h2 id="springdatajpa&#x6982;&#x8FF0;">SpringDataJPA&#x6982;&#x8FF0;</h2>
+<p>Spring Data JPA&#x8BA9;&#x5F00;&#x53D1;&#x8005;&#x6446;&#x8131;&#x4E86;DAO&#x5C42;&#x7684;&#x64CD;&#x4F5C;,&#x57FA;&#x672C;&#x4E0A;&#x6240;&#x6709;&#x7684;CRUD&#x90FD;&#x53EF;&#x4EE5;&#x4F9D;&#x8D56;&#x4E8E;&#x5B83;&#x5B9E;&#x73B0;,&#x5B9E;&#x9645;&#x5DE5;&#x4F5C;&#x4E2D;&#x63A8;&#x8350;&#x4F7F;&#x7528;Spring Data JPA+ORM(&#x5982;hibernate)&#x5B8C;&#x6210;&#x64CD;&#x4F5C;</p>
+<p>&#x4F7F;&#x7528;&#x4E86;SpringDataJPA,&#x5728;dao&#x5C42;&#x4E2D;&#x53EA;&#x9700;&#x8981;&#x5199;&#x63A5;&#x53E3;,&#x5C31;&#x81EA;&#x52A8;&#x5177;&#x6709;&#x4E86;&#x589E;&#x5220;&#x6539;&#x67E5;,&#x5206;&#x9875;&#x67E5;&#x8BE2;&#x7B49;&#x65B9;&#x6CD5;</p>
+<h2 id="&#x642D;&#x5EFA;spring-data-jpa&#x7684;&#x5F00;&#x53D1;&#x73AF;&#x5883;">&#x642D;&#x5EFA;Spring Data JPA&#x7684;&#x5F00;&#x53D1;&#x73AF;&#x5883;</h2>
+<h3 id="pom&#x4F9D;&#x8D56;">pom&#x4F9D;&#x8D56;</h3>
+<pre><code class="lang-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">spring.version</span>&gt;</span>4.2.4.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">spring.version</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">hibernate.version</span>&gt;</span>5.0.7.Final<span class="hljs-tag">&lt;/<span class="hljs-name">hibernate.version</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">slf4j.version</span>&gt;</span>1.6.6<span class="hljs-tag">&lt;/<span class="hljs-name">slf4j.version</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">log4j.version</span>&gt;</span>1.2.12<span class="hljs-tag">&lt;/<span class="hljs-name">log4j.version</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">c3p0.version</span>&gt;</span>0.9.1.2<span class="hljs-tag">&lt;/<span class="hljs-name">c3p0.version</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mysql.version</span>&gt;</span>5.1.6<span class="hljs-tag">&lt;/<span class="hljs-name">mysql.version</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- junit&#x5355;&#x5143;&#x6D4B;&#x8BD5; --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.9<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span>
+           <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+        <span class="hljs-comment">&lt;!-- spring beg --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.aspectj<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>aspectjweaver<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.6.8<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-aop<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>${spring.version}<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-context<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>${spring.version}<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-context-support<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>${spring.version}<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-orm<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>${spring.version}<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-beans<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>${spring.version}<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-core<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>${spring.version}<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+           <span class="hljs-comment">&lt;!-- spring end --&gt;</span>
+
+        <span class="hljs-comment">&lt;!-- hibernate beg --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.hibernate<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>hibernate-core<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>${hibernate.version}<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.hibernate<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>hibernate-entitymanager<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>${hibernate.version}<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.hibernate<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>hibernate-validator<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.2.1.Final<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- hibernate end --&gt;</span>
+
+        <span class="hljs-comment">&lt;!-- c3p0 beg --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>c3p0<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>c3p0<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>${c3p0.version}<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- c3p0 end --&gt;</span>
+
+        <span class="hljs-comment">&lt;!-- log end --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>log4j<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>log4j<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>${log4j.version}<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.slf4j<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>slf4j-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>${slf4j.version}<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.slf4j<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+             <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>slf4j-log4j12<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>${slf4j.version}<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- log end --&gt;</span>
+
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>mysql<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mysql-connector-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>${mysql.version}<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.data<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-data-jpa<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.9.0.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.2.4.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+        <span class="hljs-comment">&lt;!-- el beg &#x4F7F;&#x7528;spring data jpa &#x5FC5;&#x987B;&#x5F15;&#x5165; --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>  
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>javax.el<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>  
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>javax.el-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>  
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.2.4<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>  
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>  
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>  
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.glassfish.web<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>  
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>javax.el<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>  
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.2.4<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>  
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span> 
+        <span class="hljs-comment">&lt;!-- el end --&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
+</code></pre>
+<h3 id="&#x6574;&#x5408;spring-data-jpa&#x4E0E;spring">&#x6574;&#x5408;Spring Data JPA&#x4E0E;Spring</h3>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans&quot;</span>
+       <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="hljs-attr">xmlns:aop</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/aop&quot;</span>
+       <span class="hljs-attr">xmlns:context</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/context&quot;</span>
+       <span class="hljs-attr">xmlns:jdbc</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/jdbc&quot;</span> <span class="hljs-attr">xmlns:tx</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/tx&quot;</span>
+       <span class="hljs-attr">xmlns:jpa</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/data/jpa&quot;</span> <span class="hljs-attr">xmlns:task</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/task&quot;</span>
+       <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/data/jpa
+        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd&quot;</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!--spring &#x548C; spring data jpa&#x7684;&#x914D;&#x7F6E;--&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- 1.&#x521B;&#x5EFA;entityManagerFactory&#x5BF9;&#x8C61;&#x4EA4;&#x7ED9;spring&#x5BB9;&#x5668;&#x7BA1;&#x7406;--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;entityManagerFactoty&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;dataSource&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;dataSource&quot;</span> /&gt;</span>
+        <span class="hljs-comment">&lt;!--&#x914D;&#x7F6E;&#x7684;&#x626B;&#x63CF;&#x7684;&#x5305;&#xFF08;&#x5B9E;&#x4F53;&#x7C7B;&#x6240;&#x5728;&#x7684;&#x5305;&#xFF09; --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;packagesToScan&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;com.zhao.domain&quot;</span> /&gt;</span>
+        <span class="hljs-comment">&lt;!-- jpa&#x7684;&#x5B9E;&#x73B0;&#x5382;&#x5BB6; --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;persistenceProvider&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.hibernate.jpa.HibernatePersistenceProvider&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+
+        <span class="hljs-comment">&lt;!--jpa&#x7684;&#x4F9B;&#x5E94;&#x5546;&#x9002;&#x914D;&#x5668; --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;jpaVendorAdapter&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter&quot;</span>&gt;</span>
+                <span class="hljs-comment">&lt;!--&#x914D;&#x7F6E;&#x662F;&#x5426;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x8868; --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;generateDdl&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;false&quot;</span> /&gt;</span>
+                <span class="hljs-comment">&lt;!--&#x6307;&#x5B9A;&#x6570;&#x636E;&#x5E93;&#x7C7B;&#x578B; --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;database&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;MYSQL&quot;</span> /&gt;</span>
+                <span class="hljs-comment">&lt;!--&#x6570;&#x636E;&#x5E93;&#x65B9;&#x8A00;&#xFF1A;&#x652F;&#x6301;&#x7684;&#x7279;&#x6709;&#x8BED;&#x6CD5; --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;databasePlatform&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;org.hibernate.dialect.MySQLDialect&quot;</span> /&gt;</span>
+                <span class="hljs-comment">&lt;!--&#x662F;&#x5426;&#x663E;&#x793A;sql --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;showSql&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;true&quot;</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+
+        <span class="hljs-comment">&lt;!--jpa&#x7684;&#x65B9;&#x8A00; &#xFF1A;&#x9AD8;&#x7EA7;&#x7684;&#x7279;&#x6027; --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;jpaDialect&quot;</span> &gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.springframework.orm.jpa.vendor.HibernateJpaDialect&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!--2.&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x6C60; --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;dataSource&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;user&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;root&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;password&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;111111&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;jdbcUrl&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;jdbc:mysql:///jpa&quot;</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;driverClass&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;com.mysql.jdbc.Driver&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!--3.&#x6574;&#x5408;spring dataJpa--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">jpa:repositories</span> <span class="hljs-attr">base-package</span>=<span class="hljs-string">&quot;com.zhao.dao&quot;</span> <span class="hljs-attr">transaction-manager-ref</span>=<span class="hljs-string">&quot;transactionManager&quot;</span>
+                   <span class="hljs-attr">entity-manager-factory-ref</span>=<span class="hljs-string">&quot;entityManagerFactoty&quot;</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">jpa:repositories</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!--4.&#x914D;&#x7F6E;&#x4E8B;&#x52A1;&#x7BA1;&#x7406;&#x5668; --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;transactionManager&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.springframework.orm.jpa.JpaTransactionManager&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;entityManagerFactory&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;entityManagerFactoty&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- 4.txAdvice--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tx:advice</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;txAdvice&quot;</span> <span class="hljs-attr">transaction-manager</span>=<span class="hljs-string">&quot;transactionManager&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">tx:attributes</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">tx:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;save*&quot;</span> <span class="hljs-attr">propagation</span>=<span class="hljs-string">&quot;REQUIRED&quot;</span>/&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">tx:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;insert*&quot;</span> <span class="hljs-attr">propagation</span>=<span class="hljs-string">&quot;REQUIRED&quot;</span>/&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">tx:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;update*&quot;</span> <span class="hljs-attr">propagation</span>=<span class="hljs-string">&quot;REQUIRED&quot;</span>/&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">tx:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;delete*&quot;</span> <span class="hljs-attr">propagation</span>=<span class="hljs-string">&quot;REQUIRED&quot;</span>/&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">tx:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;get*&quot;</span> <span class="hljs-attr">read-only</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">tx:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;find*&quot;</span> <span class="hljs-attr">read-only</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">tx:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;*&quot;</span> <span class="hljs-attr">propagation</span>=<span class="hljs-string">&quot;REQUIRED&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tx:attributes</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tx:advice</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- 5.aop--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aop:config</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">aop:pointcut</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;pointcut&quot;</span> <span class="hljs-attr">expression</span>=<span class="hljs-string">&quot;execution(* com.zhao.service.*.*(..))&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">aop:advisor</span> <span class="hljs-attr">advice-ref</span>=<span class="hljs-string">&quot;txAdvice&quot;</span> <span class="hljs-attr">pointcut-ref</span>=<span class="hljs-string">&quot;pointcut&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">aop:config</span>&gt;</span>
+
+
+    <span class="hljs-comment">&lt;!--5.&#x58F0;&#x660E;&#x5F0F;&#x4E8B;&#x52A1; --&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- 6. &#x914D;&#x7F6E;&#x5305;&#x626B;&#x63CF;--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">context:component-scan</span> <span class="hljs-attr">base-package</span>=<span class="hljs-string">&quot;com.zhao&quot;</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">context:component-scan</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--&#x7EC4;&#x88C5;&#x5176;&#x5B83; &#x914D;&#x7F6E;&#x6587;&#x4EF6;--&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span>
+</code></pre>
+<h3 id="&#x914D;&#x7F6E;&#x5B9E;&#x4F53;&#x7C7B;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;">&#x914D;&#x7F6E;&#x5B9E;&#x4F53;&#x7C7B;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;</h3>
+<h2 id="&#x4F7F;&#x7528;springdatajpa&#x5B8C;&#x6210;&#x9700;&#x6C42;">&#x4F7F;&#x7528;SpringDataJPA&#x5B8C;&#x6210;&#x9700;&#x6C42;</h2>
+<h3 id="&#x7F16;&#x5199;&#x590D;&#x5408;springdatajpa&#x89C4;&#x8303;&#x7684;dao&#x5C42;&#x63A5;&#x53E3;">&#x7F16;&#x5199;&#x590D;&#x5408;SpringDataJPA&#x89C4;&#x8303;&#x7684;Dao&#x5C42;&#x63A5;&#x53E3;</h3>
+<p>1.&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Dao&#x5C42;&#x63A5;&#x53E3;,&#x5E76;&#x5B9E;&#x73B0;JpaRepository&#x548C;JpaSpecificationExecutor</p>
+<p>2.&#x63D0;&#x4F9B;&#x76F8;&#x5E94;&#x7684;&#x6CDB;&#x578B;</p>
+<h3 id="&#x5B8C;&#x6210;&#x57FA;&#x672C;&#x7684;crud&#x64CD;&#x4F5C;">&#x5B8C;&#x6210;&#x57FA;&#x672C;&#x7684;CRUD&#x64CD;&#x4F5C;</h3>
+<p>&#x5EFA;&#x7ACB;&#x6D4B;&#x8BD5;&#x7C7B;,&#x5B8C;&#x6210;&#x589E;&#x5220;&#x6539;&#x67E5;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@RunWith</span>(SpringJUnit4ClassRunner.class)
+<span class="hljs-meta">@ContextConfiguration</span>(locations=<span class="hljs-string">&quot;classpath:applicationContext.xml&quot;</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomerTest</span> </span>{
+    <span class="hljs-comment">//&#x589E;</span>
+    <span class="hljs-comment">//&#x5220;</span>
+    <span class="hljs-comment">//&#x6539;</span>
+    <span class="hljs-comment">//&#x67E5;</span>
+}
+</code></pre>
+<h2 id="spring-data-jpa&#x5185;&#x90E8;&#x539F;&#x7406;">Spring Data JPA&#x5185;&#x90E8;&#x539F;&#x7406;</h2>
+<p>&#x4EE3;&#x7406;&#x5B50;&#x7C7B;&#x901A;&#x8FC7;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x542B;&#x6709;&#x589E;&#x5220;&#x6539;&#x67E5;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;</p>
+<h2 id="&#x4F7F;&#x7528;jpqlsql&#x7684;&#x65B9;&#x5F0F;&#x67E5;&#x8BE2;">&#x4F7F;&#x7528;JPQL,SQL&#x7684;&#x65B9;&#x5F0F;&#x67E5;&#x8BE2;</h2>
+<h3 id="jpql&#x65B9;&#x5F0F;">JPQL&#x65B9;&#x5F0F;</h3>
+<p>&#x5728;&#x7EE7;&#x627F;&#x4E86;JpaRepository&#x548C;JpaSpecificationExecutor&#x4E2D;&#x7684;&#x63A5;&#x53E3;&#x4E2D;&#x4F7F;&#x7528;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">CustomerDao</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">JpaRepository</span>&lt;<span class="hljs-title">Customer</span>,<span class="hljs-title">Long</span>&gt;,<span class="hljs-title">JpaSpecificationExecutor</span>&lt;<span class="hljs-title">Customer</span>&gt; </span>{    
+    <span class="hljs-comment">//@Query &#x4F7F;&#x7528;jpql&#x7684;&#x65B9;&#x5F0F;&#x67E5;&#x8BE2;&#x3002;</span>
+    <span class="hljs-meta">@Query</span>(value=<span class="hljs-string">&quot;from Customer&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Customer&gt; <span class="hljs-title">findAllCustomer</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-comment">//@Query &#x4F7F;&#x7528;jpql&#x7684;&#x65B9;&#x5F0F;&#x67E5;&#x8BE2;&#x3002;?1&#x4EE3;&#x8868;&#x53C2;&#x6570;&#x7684;&#x5360;&#x4F4D;&#x7B26;&#xFF0C;&#x5176;&#x4E2D;1&#x5BF9;&#x5E94;&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x53C2;&#x6570;&#x7D22;&#x5F15;</span>
+    <span class="hljs-meta">@Query</span>(value=<span class="hljs-string">&quot;from Customer where custName = ?1&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Customer <span class="hljs-title">findCustomer</span><span class="hljs-params">(String custName)</span></span>;
+
+    <span class="hljs-meta">@Query</span>(value=<span class="hljs-string">&quot;update Customer set custName = ?1 where custId = ?2&quot;</span>)
+    <span class="hljs-meta">@Modifying</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">updateCustomer</span><span class="hljs-params">(String custName,Long custId)</span></span>;
+
+}
+</code></pre>
+<h3 id="sql&#x65B9;&#x5F0F;">SQL&#x65B9;&#x5F0F;</h3>
+<pre><code class="lang-java">    <span class="hljs-comment">/**
+    * nativeQuery : &#x4F7F;&#x7528;&#x672C;&#x5730;sql&#x7684;&#x65B9;&#x5F0F;&#x67E5;&#x8BE2;
+    */</span>
+    <span class="hljs-meta">@Query</span>(value=<span class="hljs-string">&quot;select * from cst_customer&quot;</span>,nativeQuery=<span class="hljs-keyword">true</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">findSql</span><span class="hljs-params">()</span></span>;
+</code></pre>
+<h3 id="&#x65B9;&#x6CD5;&#x547D;&#x540D;&#x89C4;&#x5219;&#x67E5;&#x8BE2;">&#x65B9;&#x6CD5;&#x547D;&#x540D;&#x89C4;&#x5219;&#x67E5;&#x8BE2;</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Keyword</strong></td>
+<td style="text-align:center"><strong>Sample</strong></td>
+<td><strong>JPQL</strong></td>
+</tr>
+<tr>
+<td>And</td>
+<td style="text-align:center">findByLastnameAndFirstname</td>
+<td>&#x2026;   where x.lastname = ?1 and x.firstname = ?2</td>
+</tr>
+<tr>
+<td>Or</td>
+<td style="text-align:center">findByLastnameOrFirstname</td>
+<td>&#x2026;   where x.lastname = ?1 or x.firstname = ?2</td>
+</tr>
+<tr>
+<td>Is,Equals</td>
+<td style="text-align:center">findByFirstnameIs, findByFirstnameEquals</td>
+<td>&#x2026;   where x.firstname = ?1</td>
+</tr>
+<tr>
+<td>Between</td>
+<td style="text-align:center">findByStartDateBetween</td>
+<td>&#x2026;   where x.startDate between ?1 and ?2</td>
+</tr>
+<tr>
+<td>LessThan</td>
+<td style="text-align:center">findByAgeLessThan</td>
+<td>&#x2026;   where x.age &lt; ?1</td>
+</tr>
+<tr>
+<td>LessThanEqual</td>
+<td style="text-align:center">findByAgeLessThanEqual</td>
+<td>&#x2026;   where x.age &#x21D0; ?1</td>
+</tr>
+<tr>
+<td>GreaterThan</td>
+<td style="text-align:center">findByAgeGreaterThan</td>
+<td>&#x2026;   where x.age &gt; ?1</td>
+</tr>
+<tr>
+<td>GreaterThanEqual</td>
+<td style="text-align:center">findByAgeGreaterThanEqual</td>
+<td>&#x2026;   where x.age &gt;= ?1</td>
+</tr>
+<tr>
+<td>After</td>
+<td style="text-align:center">findByStartDateAfter</td>
+<td>&#x2026;   where x.startDate &gt; ?1</td>
+</tr>
+<tr>
+<td>Before</td>
+<td style="text-align:center">findByStartDateBefore</td>
+<td>&#x2026;   where x.startDate &lt; ?1</td>
+</tr>
+<tr>
+<td>IsNull</td>
+<td style="text-align:center">findByAgeIsNull</td>
+<td>&#x2026;   where x.age is null</td>
+</tr>
+<tr>
+<td>IsNotNull,NotNull</td>
+<td style="text-align:center">findByAge(Is)NotNull</td>
+<td>&#x2026;   where x.age not null</td>
+</tr>
+<tr>
+<td>Like</td>
+<td style="text-align:center">findByFirstnameLike</td>
+<td>&#x2026;   where x.firstname like ?1</td>
+</tr>
+<tr>
+<td>NotLike</td>
+<td style="text-align:center">findByFirstnameNotLike</td>
+<td>&#x2026;   where x.firstname not like ?1</td>
+</tr>
+<tr>
+<td>StartingWith</td>
+<td style="text-align:center">findByFirstnameStartingWith</td>
+<td>&#x2026;   where x.firstname like ?1 (parameter bound with appended %)</td>
+</tr>
+<tr>
+<td>EndingWith</td>
+<td style="text-align:center">findByFirstnameEndingWith</td>
+<td>&#x2026;   where x.firstname like ?1 (parameter bound with prepended %)</td>
+</tr>
+<tr>
+<td>Containing</td>
+<td style="text-align:center">findByFirstnameContaining</td>
+<td>&#x2026;   where x.firstname like ?1 (parameter bound wrapped in %)</td>
+</tr>
+<tr>
+<td>OrderBy</td>
+<td style="text-align:center">findByAgeOrderByLastnameDesc</td>
+<td>&#x2026;   where x.age = ?1 order by x.lastname desc</td>
+</tr>
+<tr>
+<td>Not</td>
+<td style="text-align:center">findByLastnameNot</td>
+<td>&#x2026;   where x.lastname &lt;&gt; ?1</td>
+</tr>
+<tr>
+<td>In</td>
+<td style="text-align:center">findByAgeIn(Collection ages)</td>
+<td>&#x2026;   where x.age in ?1</td>
+</tr>
+<tr>
+<td>NotIn</td>
+<td style="text-align:center">findByAgeNotIn(Collection age)</td>
+<td>&#x2026;   where x.age not in ?1</td>
+</tr>
+<tr>
+<td>TRUE</td>
+<td style="text-align:center">findByActiveTrue()</td>
+<td>&#x2026;   where x.active = true</td>
+</tr>
+<tr>
+<td>FALSE</td>
+<td style="text-align:center">findByActiveFalse()</td>
+<td>&#x2026;   where x.active = false</td>
+</tr>
+<tr>
+<td>IgnoreCase</td>
+<td style="text-align:center">findByFirstnameIgnoreCase</td>
+<td>&#x2026;   where UPPER(x.firstame) = UPPER(?1)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="specifications&#x52A8;&#x6001;sql">Specifications&#x52A8;&#x6001;sql</h2>
+<h3 id="&#x6A21;&#x7CCA;&#x67E5;&#x8BE2;">&#x6A21;&#x7CCA;&#x67E5;&#x8BE2;</h3>
+<pre><code class="lang-java"><span class="hljs-comment">//&#x4F7F;&#x7528;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x65B9;&#x5F0F;,&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Specification&#x7684;&#x5B9E;&#x73B0;&#x7C7B;,&#x5E76;&#x5B9E;&#x73B0;toPredicate&#x65B9;&#x6CD5;</span>
+<span class="hljs-meta">@Test</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testSpecifications</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">//&#x4F7F;&#x7528;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Specification&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#xFF0C;&#x5E76;&#x5B9E;&#x73B0;toPredicate&#x65B9;&#x6CD5;</span>
+    Specification &lt;Customer&gt; spec = <span class="hljs-keyword">new</span> Specification&lt;Customer&gt;() {
+        <span class="hljs-function"><span class="hljs-keyword">public</span> Predicate <span class="hljs-title">toPredicate</span><span class="hljs-params">(Root&lt;Customer&gt; root,
+                                     CriteriaQuery&lt;?&gt; query, CriteriaBuilder cb)</span> </span>{
+            <span class="hljs-comment">//cb:&#x6784;&#x5EFA;&#x67E5;&#x8BE2;&#xFF0C;&#x6DFB;&#x52A0;&#x67E5;&#x8BE2;&#x65B9;&#x5F0F;   like&#xFF1A;&#x6A21;&#x7CCA;&#x5339;&#x914D;</span>
+            <span class="hljs-comment">//root&#xFF1A;&#x4ECE;&#x5B9E;&#x4F53;Customer&#x5BF9;&#x8C61;&#x4E2D;&#x6309;&#x7167;custName&#x5C5E;&#x6027;&#x8FDB;&#x884C;&#x67E5;&#x8BE2;</span>
+            <span class="hljs-keyword">return</span> cb.like(root.get(<span class="hljs-string">&quot;custName&quot;</span>).as(String.class), <span class="hljs-string">&quot;&#x4F20;&#x667A;&#x64AD;&#x5BA2;%&quot;</span>);
+        }
+    };
+    Customer customer = customerDao.findOne(spec);
+    System.out.println(customer);
+}
+</code></pre>
+<h3 id="&#x5206;&#x9875;&#x67E5;&#x8BE2;">&#x5206;&#x9875;&#x67E5;&#x8BE2;</h3>
+<pre><code class="lang-java"><span class="hljs-comment">//&#x5173;&#x952E;&#x8BED;&#x53E5; &#x5206;&#x9875;&#x53C2;&#x6570;Pageable pageable = new PageRequest(0, 5);</span>
+
+<span class="hljs-comment">//&#x5176;&#x4ED6;&#x8BED;&#x53E5;&#x540C;&#x4E0A;</span>
+Pageable page = <span class="hljs-keyword">new</span> PageRequest(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>);
+
+Page&lt;TbCustomer&gt; resultPage = customerDao.findAll(specification, page);
+System.out.println(resultPage);
+</code></pre>
+<h3 id="cb&#x65B9;&#x6CD5;&#x4E0E;&#x5BF9;&#x5E94;&#x5B57;&#x6BB5;">cb&#x65B9;&#x6CD5;&#x4E0E;&#x5BF9;&#x5E94;&#x5B57;&#x6BB5;</h3>
+<table>
+<thead>
+<tr>
+<th>&#x65B9;&#x6CD5;&#x540D;&#x79F0;</th>
+<th>Sql&#x5BF9;&#x5E94;&#x5173;&#x7CFB;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>equle</td>
+<td>filed = value</td>
+</tr>
+<tr>
+<td>gt&#xFF08;greaterThan &#xFF09;</td>
+<td>filed &gt; value</td>
+</tr>
+<tr>
+<td>lt&#xFF08;lessThan &#xFF09;</td>
+<td>filed &lt; value</td>
+</tr>
+<tr>
+<td>ge&#xFF08;greaterThanOrEqualTo &#xFF09;</td>
+<td>filed &gt;= value</td>
+</tr>
+<tr>
+<td>le&#xFF08; lessThanOrEqualTo&#xFF09;</td>
+<td>filed &lt;= value</td>
+</tr>
+<tr>
+<td>notEqule</td>
+<td>filed != value</td>
+</tr>
+<tr>
+<td>like</td>
+<td>filed like value</td>
+</tr>
+<tr>
+<td>notLike</td>
+<td>filed not like value</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x591A;&#x8868;&#x64CD;&#x4F5C;">&#x591A;&#x8868;&#x64CD;&#x4F5C;</h2>
+<h3 id="&#x5728;jpa&#x4E2D;&#x8868;&#x5173;&#x7CFB;&#x7684;&#x5206;&#x6790;&#x6B65;&#x9AA4;">&#x5728;JPA&#x4E2D;&#x8868;&#x5173;&#x7CFB;&#x7684;&#x5206;&#x6790;&#x6B65;&#x9AA4;</h3>
+<ul>
+<li>&#x9996;&#x5148;&#x786E;&#x5B9A;&#x4E24;&#x5F20;&#x8868;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;(&#x4E00;&#x5BF9;&#x4E00;,&#x4E00;&#x5BF9;&#x591A;,&#x591A;&#x5BF9;&#x4E00;,&#x591A;&#x5BF9;&#x591A;)</li>
+<li>&#x5728;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x5B9E;&#x73B0;&#x4E24;&#x5F20;&#x8868;&#x7684;&#x5173;&#x7CFB;</li>
+<li>&#x5728;&#x5B9E;&#x4F53;&#x7C7B;&#x4E2D;&#x63CF;&#x8FF0;&#x4E24;&#x4E2A;&#x5B9E;&#x4F53;&#x7684;&#x5173;&#x7CFB;</li>
+<li>&#x914D;&#x7F6E;&#x51FA;&#x5B9E;&#x4F53;&#x7C7B;&#x548C;&#x6570;&#x636E;&#x5E93;&#x8868;&#x7684;&#x5173;&#x7CFB;&#x6620;&#x5C04;(&#x91CD;&#x70B9;)</li>
+</ul>
+<h3 id="jpa&#x4E2D;&#x7684;&#x4E00;&#x5BF9;&#x591A;">JPA&#x4E2D;&#x7684;&#x4E00;&#x5BF9;&#x591A;</h3>
+<h4 id="&#x793A;&#x4F8B;&#x5206;&#x6790;">&#x793A;&#x4F8B;&#x5206;&#x6790;</h4>
+<p>&#x5BA2;&#x6237;:&#x6307;&#x4E00;&#x5BB6;&#x516C;&#x53F8;,&#x8BB0;&#x4E3A;A</p>
+<p>&#x8054;&#x7CFB;&#x4EBA;:&#x6307;&#x7684;&#x662F;A&#x516C;&#x53F8;&#x4E2D;&#x7684;&#x5458;&#x5DE5;</p>
+<p>&#x516C;&#x53F8;&#x548C;&#x5458;&#x5DE5;&#x7684;&#x5173;&#x7CFB;&#x5373;&#x4E3A;&#x4E00;&#x5BF9;&#x591A;</p>
+<h4 id="&#x8868;&#x5173;&#x7CFB;&#x5EFA;&#x7ACB;">&#x8868;&#x5173;&#x7CFB;&#x5EFA;&#x7ACB;</h4>
+<p>&#x5728;&#x4E00;&#x5BF9;&#x591A;&#x4E2D;,&#x628A;&#x4E00;&#x7684;&#x4E00;&#x65B9;&#x79F0;&#x4E3A;&#x4E3B;&#x8868;,&#x628A;&#x591A;&#x7684;&#x4E00;&#x65B9;&#x79F0;&#x4E3A;&#x4ECE;&#x8868;,&#x5EFA;&#x7ACB;&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x5173;&#x7CFB;,&#x9700;&#x8981;&#x4F7F;&#x7528;&#x6570;&#x636E;&#x5E93;&#x7684;&#x5916;&#x952E;&#x7EA6;&#x675F;</p>
+<p>&#x8BA9;&#x8054;&#x7CFB;&#x4EBA;&#x8868;&#x5F15;&#x7528;&#x5BA2;&#x6237;&#x8868;&#x7684;cid&#x4F5C;&#x4E3A;&#x5916;&#x952E;</p>
+<h4 id="&#x5B9E;&#x4F53;&#x7C7B;&#x5173;&#x7CFB;&#x7684;&#x5EFA;&#x7ACB;&#x4EE5;&#x53CA;&#x6620;&#x5C04;&#x914D;&#x7F6E;">&#x5B9E;&#x4F53;&#x7C7B;&#x5173;&#x7CFB;&#x7684;&#x5EFA;&#x7ACB;&#x4EE5;&#x53CA;&#x6620;&#x5C04;&#x914D;&#x7F6E;</h4>
+<pre><code class="lang-java"><span class="hljs-comment">//&#x4E00;&#x7684;pojo&#x7C7B;</span>
+<span class="hljs-comment">//&#x914D;&#x7F6E;&#x5BA2;&#x6237;&#x548C;&#x8054;&#x7CFB;&#x4EBA;&#x7684;&#x4E00;&#x5BF9;&#x591A;&#x5173;&#x7CFB;</span>
+<span class="hljs-meta">@OneToMany</span>(targetEntity=LinkMan.class)
+<span class="hljs-meta">@JoinColumn</span>(name=<span class="hljs-string">&quot;lkm_cust_id&quot;</span>,referencedColumnName=<span class="hljs-string">&quot;cust_id&quot;</span>)
+<span class="hljs-keyword">private</span> Set&lt;LinkMan&gt; linkmans = <span class="hljs-keyword">new</span> HashSet&lt;LinkMan&gt;(<span class="hljs-number">0</span>);
+
+<span class="hljs-comment">//&#x591A;&#x7684;pojo&#x7C7B;</span>
+<span class="hljs-comment">//&#x591A;&#x5BF9;&#x4E00;&#x5173;&#x7CFB;&#x6620;&#x5C04;&#xFF1A;&#x591A;&#x4E2A;&#x8054;&#x7CFB;&#x4EBA;&#x5BF9;&#x5E94;&#x5BA2;&#x6237;</span>
+<span class="hljs-meta">@ManyToOne</span>(targetEntity=Customer.class)
+<span class="hljs-meta">@JoinColumn</span>(name=<span class="hljs-string">&quot;lkm_cust_id&quot;</span>,referencedColumnName=<span class="hljs-string">&quot;cust_id&quot;</span>)
+<span class="hljs-keyword">private</span> Customer customer;<span class="hljs-comment">//&#x7528;&#x5B83;&#x7684;&#x4E3B;&#x952E;&#xFF0C;&#x5BF9;&#x5E94;&#x8054;&#x7CFB;&#x4EBA;&#x8868;&#x4E2D;&#x7684;&#x5916;&#x952E;</span>
+</code></pre>
+<h4 id="&#x6620;&#x5C04;&#x7684;&#x6CE8;&#x89E3;&#x8BF4;&#x660E;">&#x6620;&#x5C04;&#x7684;&#x6CE8;&#x89E3;&#x8BF4;&#x660E;</h4>
+<pre><code class="lang-java"><span class="hljs-meta">@OneToMany</span>:
+       &#x4F5C;&#x7528;&#xFF1A;&#x5EFA;&#x7ACB;&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x5173;&#x7CFB;&#x6620;&#x5C04;
+    &#x5C5E;&#x6027;&#xFF1A;
+        targetEntityClass&#xFF1A;&#x6307;&#x5B9A;&#x591A;&#x7684;&#x591A;&#x65B9;&#x7684;&#x7C7B;&#x7684;&#x5B57;&#x8282;&#x7801;
+        mappedBy&#xFF1A;&#x6307;&#x5B9A;&#x4ECE;&#x8868;&#x5B9E;&#x4F53;&#x7C7B;&#x4E2D;&#x5F15;&#x7528;&#x4E3B;&#x8868;&#x5BF9;&#x8C61;&#x7684;&#x540D;&#x79F0;&#x3002;
+        cascade&#xFF1A;&#x6307;&#x5B9A;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x7EA7;&#x8054;&#x64CD;&#x4F5C;
+        fetch&#xFF1A;&#x6307;&#x5B9A;&#x662F;&#x5426;&#x91C7;&#x7528;&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D;
+        orphanRemoval&#xFF1A;&#x662F;&#x5426;&#x4F7F;&#x7528;&#x5B64;&#x513F;&#x5220;&#x9664;(&#x4E0D;&#x518D;&#x5177;&#x6709;&#x88AB;&#x7EA6;&#x675F;&#x7684;&#x5B9E;&#x4F53;&#x5173;&#x7CFB;)
+
+<span class="hljs-meta">@ManyToOne</span>
+    &#x4F5C;&#x7528;&#xFF1A;&#x5EFA;&#x7ACB;&#x591A;&#x5BF9;&#x4E00;&#x7684;&#x5173;&#x7CFB;
+    &#x5C5E;&#x6027;&#xFF1A;
+        targetEntityClass&#xFF1A;&#x6307;&#x5B9A;&#x4E00;&#x7684;&#x4E00;&#x65B9;&#x5B9E;&#x4F53;&#x7C7B;&#x5B57;&#x8282;&#x7801;
+        cascade&#xFF1A;&#x6307;&#x5B9A;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x7EA7;&#x8054;&#x64CD;&#x4F5C;
+        fetch&#xFF1A;&#x6307;&#x5B9A;&#x662F;&#x5426;&#x91C7;&#x7528;&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D;
+        optional&#xFF1A;&#x5173;&#x8054;&#x662F;&#x5426;&#x53EF;&#x9009;&#x3002;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E3A;<span class="hljs-keyword">false</span>&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x59CB;&#x7EC8;&#x5B58;&#x5728;&#x975E;&#x7A7A;&#x5173;&#x7CFB;&#x3002;
+
+<span class="hljs-meta">@JoinColumn</span>
+     &#x4F5C;&#x7528;&#xFF1A;&#x7528;&#x4E8E;&#x5B9A;&#x4E49;&#x4E3B;&#x952E;&#x5B57;&#x6BB5;&#x548C;&#x5916;&#x952E;&#x5B57;&#x6BB5;&#x7684;&#x5BF9;&#x5E94;&#x5173;&#x7CFB;&#x3002;
+     &#x5C5E;&#x6027;&#xFF1A;
+        name&#xFF1A;&#x6307;&#x5B9A;&#x5916;&#x952E;&#x5B57;&#x6BB5;&#x7684;&#x540D;&#x79F0;
+        referencedColumnName&#xFF1A;&#x6307;&#x5B9A;&#x5F15;&#x7528;&#x4E3B;&#x8868;&#x7684;&#x4E3B;&#x952E;&#x5B57;&#x6BB5;&#x540D;&#x79F0;
+        unique&#xFF1A;&#x662F;&#x5426;&#x552F;&#x4E00;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x4E0D;&#x552F;&#x4E00;
+        nullable&#xFF1A;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x4E3A;&#x7A7A;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x5141;&#x8BB8;&#x3002;
+        insertable&#xFF1A;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x63D2;&#x5165;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x5141;&#x8BB8;&#x3002;
+        updatable&#xFF1A;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x66F4;&#x65B0;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x5141;&#x8BB8;&#x3002;
+        columnDefinition&#xFF1A;&#x5217;&#x7684;&#x5B9A;&#x4E49;&#x4FE1;&#x606F;&#x3002;
+</code></pre>
+<h4 id="&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x64CD;&#x4F5C;">&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x64CD;&#x4F5C;</h4>
+<p>&#x6CE8;&#x610F;:</p>
+<p>mappedBy&#x540E;&#x7684;&#x503C;&#x4E3A;&#x591A;&#x7684;pojo&#x91CC;&#x6301;&#x6709;&#x7684;&#x53D8;&#x91CF;&#x540D;</p>
+<p>&#x591A;&#x7684;pojo&#x7C7B;&#x91CC; &#x5916;&#x952E;&#x4E0D;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;</p>
+<h5 id="&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x6DFB;&#x52A0;">&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x6DFB;&#x52A0;</h5>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+     * &#x9700;&#x6C42;:
+     * &#x4FDD;&#x5B58;&#x4E00;&#x4E2A;&#x5BA2;&#x6237;,&#x4E00;&#x4E2A;&#x8054;&#x7CFB;&#x4EBA;
+     * &#x6B65;&#x9AA4;:
+     * &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5BA2;&#x6237;,&#x4E00;&#x4E2A;&#x8054;&#x7CFB;&#x4EBA;
+     * &#x4FEE;&#x6539;&#x5BA2;&#x6237;&#x91CC;&#x7684;&#x8054;&#x7CFB;&#x4EBA;
+     * &#x4F1A;&#x4EA7;&#x751F;&#x4E24;&#x6761;&#x65B0;&#x5EFA; &#x4E00;&#x6761;&#x66F4;&#x65B0;
+     *
+     * &#x5B9E;&#x9645;&#x4E0A;&#x4E0D;&#x9700;&#x8981;&#x90A3;&#x4E00;&#x6761;&#x66F4;&#x65B0;
+     * &#x89E3;&#x51B3;&#x529E;&#x6CD5;&#x4E3A;
+     * &#x4E00;&#x7684;&#x4E00;&#x65B9;&#x653E;&#x5F03;&#x5916;&#x952E;&#x7684;&#x7EF4;&#x62A4;&#x6743;
+     * &#x5177;&#x4F53;&#x505A;&#x6CD5;&#x4E3A;&#x4E00;&#x7684;&#x4E00;&#x65B9;&#x4FEE;&#x6539;&#x6CE8;&#x89E3;&#x4E3A;
+     * <span class="hljs-doctag">@OneToMany</span>(mappedBy=&quot;customer&quot;)
+     * mappedBy&#x540E;&#x7684;&#x503C;&#x4E3A;&#x591A;&#x7684;pojo&#x91CC;&#x6301;&#x6709;&#x7684;&#x53D8;&#x91CF;&#x540D;(&#x91CD;&#x70B9;)
+     */</span>
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-meta">@Transactional</span>
+    <span class="hljs-meta">@Rollback</span>(<span class="hljs-keyword">false</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testAddCustomer</span><span class="hljs-params">()</span></span>{
+        TbCustomer customer = <span class="hljs-keyword">new</span> TbCustomer();
+        customer.setCustName(<span class="hljs-string">&quot;&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x4E3B;&#x8868;&quot;</span>);
+        TbLinkMan linkMan = <span class="hljs-keyword">new</span> TbLinkMan();
+        linkMan.setLkmName(<span class="hljs-string">&quot;&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x4ECE;&#x8868;&quot;</span>);
+          linkMan.setTbCustomer(customer);
+        customer.getLinkmans().add(linkMan);
+
+        customerDao.save(customer);
+        linkManDao.save(linkMan);
+    }
+
+    <span class="hljs-comment">/**
+     * &#x7EA7;&#x8054;&#x6DFB;&#x52A0; &#x4E0D;&#x7528;&#x4FDD;&#x5B58;linkManDao
+     * &#x9700;&#x8981;&#x5728;&#x4E00;&#x7684;pojo&#x4E2D;&#x7684;
+     * <span class="hljs-doctag">@OneToMany</span>&#x914D;&#x7F6E; cascade = CascadeType.ALL
+     */</span>
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-meta">@Transactional</span>
+    <span class="hljs-meta">@Rollback</span>(<span class="hljs-keyword">false</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testAddCustomer1</span><span class="hljs-params">()</span></span>{
+        TbCustomer customer = <span class="hljs-keyword">new</span> TbCustomer();
+        customer.setCustName(<span class="hljs-string">&quot;&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x4E3B;&#x8868;1&quot;</span>);
+        TbLinkMan linkMan = <span class="hljs-keyword">new</span> TbLinkMan();
+        linkMan.setLkmName(<span class="hljs-string">&quot;&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x4ECE;&#x8868;1&quot;</span>);
+
+        linkMan.setTbCustomer(customer);
+        customer.getLinkmans().add(linkMan);
+
+        customerDao.save(customer);
+    }
+</code></pre>
+<h5 id="&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x5220;&#x9664;">&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x5220;&#x9664;</h5>
+<pre><code class="lang-java">&#x5220;&#x9664;&#x4ECE;&#x8868;&#x6570;&#x636E;:
+    &#x968F;&#x4FBF;&#x5220;
+
+&#x5220;&#x9664;&#x4E3B;&#x8868;&#x6570;&#x636E;:
+    &#x6CA1;&#x6709;&#x4ECE;&#x8868;&#x6570;&#x636E;:
+        &#x968F;&#x4FBF;&#x5220;
+
+    &#x6709;&#x4ECE;&#x8868;&#x6570;&#x636E;:
+        &#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;,&#x5B83;&#x4F1A;&#x628A;&#x5916;&#x952E;&#x5B57;&#x6BB5;&#x7F6E;&#x4E3A;<span class="hljs-keyword">null</span>,&#x7136;&#x540E;&#x5220;&#x9664;&#x4E3B;&#x8868;&#x6570;&#x636E;,&#x5982;&#x679C;&#x5728;&#x6570;&#x636E;&#x5E93;&#x7684;&#x8868;&#x7ED3;&#x6784;&#x4E0A;
+        ,&#x5916;&#x952E;&#x5B57;&#x6BB5;&#x6709;&#x975E;&#x7A7A;&#x7EA6;&#x675F;,&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x62A5;&#x9519;
+
+        &#x5982;&#x679C;&#x914D;&#x7F6E;&#x4E86;&#x653E;&#x5F03;&#x7EF4;&#x62A4;&#x5173;&#x8054;&#x5173;&#x7CFB;&#x7684;&#x6743;&#x5229;,&#x5219;&#x4E0D;&#x80FD;&#x5220;&#x9664;(&#x4E0E;&#x5916;&#x952E;&#x5B57;&#x6BB5;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x4E3A;<span class="hljs-keyword">null</span>&#x6CA1;&#x6709;&#x5173;&#x7CFB;),
+        &#x56E0;&#x4E3A;&#x5728;&#x5220;&#x9664;&#x65F6;,&#x5B83;&#x6839;&#x672C;&#x4E0D;&#x4F1A;&#x53BB;&#x66F4;&#x65B0;&#x4ECE;&#x8868;&#x7684;&#x5916;&#x952E;&#x5B57;&#x6BB5;&#x4E86;
+
+        &#x5982;&#x679C;&#x8FD8;&#x60F3;&#x5220;&#x9664;,&#x4F7F;&#x7528;&#x7EA7;&#x8054;&#x5220;&#x9664;&#x5F15;&#x7528;
+</code></pre>
+<p><strong>&#x5728;&#x5B9E;&#x9645;&#x5F00;&#x53D1;&#x4E2D;,&#x7EA7;&#x8054;&#x5220;&#x9664;&#x8BF7;&#x614E;&#x7528;!!!(&#x5728;&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x60C5;&#x51B5;&#x4E0B;)</strong></p>
+<h6 id="&#x7EA7;&#x8054;&#x5220;&#x9664;">&#x7EA7;&#x8054;&#x5220;&#x9664;</h6>
+<pre><code class="lang-java">    <span class="hljs-comment">/**
+     * cascade:&#x914D;&#x7F6E;&#x7EA7;&#x8054;&#x64CD;&#x4F5C;
+     *         CascadeType.MERGE    &#x7EA7;&#x8054;&#x66F4;&#x65B0;
+     *         CascadeType.PERSIST    &#x7EA7;&#x8054;&#x4FDD;&#x5B58;&#xFF1A;
+     *         CascadeType.REFRESH &#x7EA7;&#x8054;&#x5237;&#x65B0;&#xFF1A;
+     *         CascadeType.REMOVE    &#x7EA7;&#x8054;&#x5220;&#x9664;&#xFF1A;
+     *         CascadeType.ALL        &#x5305;&#x542B;&#x6240;&#x6709;
+     */</span>
+    <span class="hljs-meta">@OneToMany</span>(mappedBy=<span class="hljs-string">&quot;customer&quot;</span>,cascade=CascadeType.ALL)
+</code></pre>
+<h3 id="jpa&#x4E2D;&#x7684;&#x591A;&#x5BF9;&#x591A;">JPA&#x4E2D;&#x7684;&#x591A;&#x5BF9;&#x591A;</h3>
+<h4 id="&#x5EFA;&#x8868;">&#x5EFA;&#x8868;</h4>
+<pre><code class="lang-sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`user`</span> (
+  <span class="hljs-string">`id`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> AUTO_INCREMENT,
+  <span class="hljs-string">`username`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">32</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x7528;&#x6237;&#x540D;&#x79F0;&apos;</span>,
+  <span class="hljs-string">`birthday`</span> datetime <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x751F;&#x65E5;&apos;</span>,
+  <span class="hljs-string">`sex`</span> <span class="hljs-built_in">char</span>(<span class="hljs-number">1</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x6027;&#x522B;&apos;</span>,
+  <span class="hljs-string">`address`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">256</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x5730;&#x5740;&apos;</span>,
+  PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`id`</span>) <span class="hljs-keyword">USING</span> BTREE
+) <span class="hljs-keyword">ENGINE</span>=<span class="hljs-keyword">InnoDB</span> AUTO_INCREMENT=<span class="hljs-number">51</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span>=utf8 ROW_FORMAT=DYNAMIC;
+
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`role`</span> (
+  <span class="hljs-string">`ID`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x7F16;&#x53F7;&apos;</span>,
+  <span class="hljs-string">`ROLE_NAME`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">30</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x89D2;&#x8272;&#x540D;&#x79F0;&apos;</span>,
+  <span class="hljs-string">`ROLE_DESC`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">60</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x89D2;&#x8272;&#x63CF;&#x8FF0;&apos;</span>,
+  PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`ID`</span>) <span class="hljs-keyword">USING</span> BTREE
+) <span class="hljs-keyword">ENGINE</span>=<span class="hljs-keyword">InnoDB</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span>=utf8 ROW_FORMAT=DYNAMIC;
+
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`user_role`</span> (
+  <span class="hljs-string">`UID`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x7528;&#x6237;&#x7F16;&#x53F7;&apos;</span>,
+  <span class="hljs-string">`RID`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x89D2;&#x8272;&#x7F16;&#x53F7;&apos;</span>,
+  PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`UID`</span>,<span class="hljs-string">`RID`</span>) <span class="hljs-keyword">USING</span> BTREE,
+  <span class="hljs-keyword">KEY</span> <span class="hljs-string">`FK_Reference_10`</span> (<span class="hljs-string">`RID`</span>) <span class="hljs-keyword">USING</span> BTREE,
+  <span class="hljs-keyword">CONSTRAINT</span> <span class="hljs-string">`FK_Reference_10`</span> FOREIGN <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`RID`</span>) <span class="hljs-keyword">REFERENCES</span> <span class="hljs-string">`role`</span> (<span class="hljs-string">`ID`</span>),
+  <span class="hljs-keyword">CONSTRAINT</span> <span class="hljs-string">`FK_Reference_9`</span> FOREIGN <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`UID`</span>) <span class="hljs-keyword">REFERENCES</span> <span class="hljs-string">`user`</span> (<span class="hljs-string">`id`</span>)
+) <span class="hljs-keyword">ENGINE</span>=<span class="hljs-keyword">InnoDB</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span>=utf8 ROW_FORMAT=DYNAMIC;
+</code></pre>
+<h4 id="&#x6620;&#x5C04;&#x5173;&#x7CFB;">&#x6620;&#x5C04;&#x5173;&#x7CFB;</h4>
+<pre><code class="lang-java">Role&#x5B9E;&#x4F53;&#x7C7B;&#x4E2D;
+
+<span class="hljs-comment">//&#x591A;&#x5BF9;&#x591A;&#x5173;&#x7CFB;&#x6620;&#x5C04;</span>
+<span class="hljs-meta">@ManyToMany</span>(mappedBy = <span class="hljs-string">&quot;roles&quot;</span>,fetch=FetchType.EAGER)
+<span class="hljs-keyword">private</span> Set&lt;User&gt; users=<span class="hljs-keyword">new</span> HashSet&lt;&gt;(<span class="hljs-number">0</span>);
+
+User&#x5B9E;&#x4F53;&#x7C7B;&#x4E2D;
+<span class="hljs-comment">//&#x591A;&#x5BF9;&#x591A;&#x5173;&#x7CFB;&#x6620;&#x5C04;</span>
+ <span class="hljs-comment">/**
+     * &#x591A;&#x5BF9;&#x591A;&#x7684;&#x53E6;&#x4E00;&#x4E2A;&#x5B9E;&#x4F53;,cascade&#x7EA7;&#x8054;&#x64CD;&#x4F5C;&#x7684;&#x53D6;&#x503C; CascadeType.ALL&#x6240;&#x6709;&#x7684;&#x7EA7;&#x8054;&#x64CD;&#x4F5C;
+     * name:&#x4E2D;&#x95F4;&#x8868;&#x7684;&#x8868;&#x540D;
+     * joinColumns: &#x5F53;&#x524D;&#x5BF9;&#x8C61;&#x5728;&#x4E2D;&#x95F4;&#x8868;&#x7684;&#x5916;&#x952E;
+     * inverseJoinColumns:&#x53E6;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5728;&#x4E2D;&#x95F4;&#x8868;&#x7684;&#x5916;&#x952E;
+     * JoinColumn&#x4E2D;&#x7684;name&#x4E2D;&#x95F4;&#x8868;&#x5BF9;&#x5E94;&#x7684;&#x5217;&#x8868;
+     */</span>
+    <span class="hljs-meta">@ManyToMany</span>(targetEntity = Role.class,cascade = CascadeType.ALL,fetch=FetchType.EAGER)
+    <span class="hljs-meta">@JoinTable</span>(name = <span class="hljs-string">&quot;user_role&quot;</span>,
+            joinColumns ={<span class="hljs-meta">@JoinColumn</span>(name = <span class="hljs-string">&quot;uid&quot;</span>,referencedColumnName = <span class="hljs-string">&quot;id&quot;</span>)},
+            inverseJoinColumns ={<span class="hljs-meta">@JoinColumn</span>(name = <span class="hljs-string">&quot;rid&quot;</span>,referencedColumnName = <span class="hljs-string">&quot;ID&quot;</span>)})
+</code></pre>
+<h4 id="&#x6CE8;&#x89E3;&#x7684;&#x610F;&#x4E49;">&#x6CE8;&#x89E3;&#x7684;&#x610F;&#x4E49;</h4>
+<pre><code class="lang-java"><span class="hljs-meta">@ManyToMany</span>
+    &#x4F5C;&#x7528;&#xFF1A;&#x7528;&#x4E8E;&#x6620;&#x5C04;&#x591A;&#x5BF9;&#x591A;&#x5173;&#x7CFB;
+    &#x5C5E;&#x6027;&#xFF1A;
+        cascade&#xFF1A;&#x914D;&#x7F6E;&#x7EA7;&#x8054;&#x64CD;&#x4F5C;&#x3002;
+        fetch&#xFF1A;&#x914D;&#x7F6E;&#x662F;&#x5426;&#x91C7;&#x7528;&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D;&#x3002;
+        targetEntity&#xFF1A;&#x914D;&#x7F6E;&#x76EE;&#x6807;&#x7684;&#x5B9E;&#x4F53;&#x7C7B;&#x3002;&#x6620;&#x5C04;&#x591A;&#x5BF9;&#x591A;&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x7528;&#x5199;&#x3002;
+
+<span class="hljs-meta">@JoinTable</span>
+    &#x4F5C;&#x7528;&#xFF1A;&#x9488;&#x5BF9;&#x4E2D;&#x95F4;&#x8868;&#x7684;&#x914D;&#x7F6E;
+    &#x5C5E;&#x6027;&#xFF1A;
+        nam&#xFF1A;&#x914D;&#x7F6E;&#x4E2D;&#x95F4;&#x8868;&#x7684;&#x540D;&#x79F0;
+        joinColumns&#xFF1A;&#x4E2D;&#x95F4;&#x8868;&#x7684;&#x5916;&#x952E;&#x5B57;&#x6BB5;&#x5173;&#x8054;&#x5F53;&#x524D;&#x5B9E;&#x4F53;&#x7C7B;&#x6240;&#x5BF9;&#x5E94;&#x8868;&#x7684;&#x4E3B;&#x952E;&#x5B57;&#x6BB5;                          
+        inverseJoinColumn&#xFF1A;&#x4E2D;&#x95F4;&#x8868;&#x7684;&#x5916;&#x952E;&#x5B57;&#x6BB5;&#x5173;&#x8054;&#x5BF9;&#x65B9;&#x8868;&#x7684;&#x4E3B;&#x952E;&#x5B57;&#x6BB5;
+
+<span class="hljs-meta">@JoinColumn</span>
+    &#x4F5C;&#x7528;&#xFF1A;&#x7528;&#x4E8E;&#x5B9A;&#x4E49;&#x4E3B;&#x952E;&#x5B57;&#x6BB5;&#x548C;&#x5916;&#x952E;&#x5B57;&#x6BB5;&#x7684;&#x5BF9;&#x5E94;&#x5173;&#x7CFB;&#x3002;
+    &#x5C5E;&#x6027;&#xFF1A;
+        name&#xFF1A;&#x6307;&#x5B9A;&#x5916;&#x952E;&#x5B57;&#x6BB5;&#x7684;&#x540D;&#x79F0;
+        referencedColumnName&#xFF1A;&#x6307;&#x5B9A;&#x5F15;&#x7528;&#x4E3B;&#x8868;&#x7684;&#x4E3B;&#x952E;&#x5B57;&#x6BB5;&#x540D;&#x79F0;
+        unique&#xFF1A;&#x662F;&#x5426;&#x552F;&#x4E00;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x4E0D;&#x552F;&#x4E00;
+        nullable&#xFF1A;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x4E3A;&#x7A7A;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x5141;&#x8BB8;&#x3002;
+        insertable&#xFF1A;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x63D2;&#x5165;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x5141;&#x8BB8;&#x3002;
+        updatable&#xFF1A;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x66F4;&#x65B0;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x5141;&#x8BB8;&#x3002;
+        columnDefinition&#xFF1A;&#x5217;&#x7684;&#x5B9A;&#x4E49;&#x4FE1;&#x606F;&#x3002;
+</code></pre>
+<h4 id="&#x6DFB;&#x52A0;">&#x6DFB;&#x52A0;</h4>
+<pre><code class="lang-java"> <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testAddUser</span><span class="hljs-params">()</span></span>{
+        User user = <span class="hljs-keyword">new</span> User();
+        user.setUsername(<span class="hljs-string">&quot;&#x7528;&#x6237;&#x4E00;&quot;</span>);
+
+        Role role = <span class="hljs-keyword">new</span> Role();
+        role.setRoleName(<span class="hljs-string">&quot;&#x89D2;&#x8272;&#x4E00;&quot;</span>);
+        role.setRoleDesc(<span class="hljs-string">&quot;&#x89D2;&#x8272;&#x4E00;&#x7684;&#x6743;&#x9650;&quot;</span>);
+
+        user.getRoles().add(role);
+        role.getUsers().add(user);
+
+        <span class="hljs-comment">//&#x6CE8;&#x610F; &#x8FD9;&#x91CC;&#x6267;&#x884C;&#x4FDD;&#x5B58;&#x6B65;&#x9AA4;&#x7684;&#x662F; &#x914D;&#x7F6E;&#x4E2D;&#x95F4;&#x8868;&#x5173;&#x7CFB;&#x7684;&#x5B9E;&#x4F53;&#x7C7B;</span>
+        userDao.save(user);
+
+    }
+</code></pre>
+<h4 id="&#x5220;&#x9664;">&#x5220;&#x9664;</h4>
+<pre><code class="lang-java">  <span class="hljs-comment">/**
+     * &#x5220;&#x9664;&#x64CD;&#x4F5C;
+     *  &#x6709;&#x6548;&#x53EF;&#x4EE5;&#x7528;
+     *     &#x5728;&#x591A;&#x5BF9;&#x591A;&#x7684;&#x5220;&#x9664;&#x65F6;&#xFF0C;,&#x53CC;&#x5411;&#x7EA7;&#x8054;&#x5220;&#x9664;&#x6839;&#x672C;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;
+     *  &#x4F46;&#x662F;&#x5728;&#x5B9E;&#x9645;&#x5F00;&#x53D1;&#x4E2D;&#x7981;&#x7528;
+     *    &#x5982;&#x679C;&#x914D;&#x4E86;&#x7684;&#x8BDD;&#xFF0C;&#x5982;&#x679C;&#x6570;&#x636E;&#x4E4B;&#x95F4;&#x6709;&#x76F8;&#x4E92;&#x5F15;&#x7528;&#x5173;&#x7CFB;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x6E05;&#x7A7A;&#x6240;&#x6709;&#x6570;&#x636E;
+     *
+     * &#x5982;&#x4E0B;&#x7684;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x662F;user user_role role &#x6240;&#x6709;&#x5173;&#x8054;&#x6570;&#x636E;&#x5168;&#x90E8;&#x5220;&#x9664; 
+     */</span>
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testDeleteUser</span><span class="hljs-params">()</span></span>{
+        User user = userDao.findOne(<span class="hljs-number">60</span>);
+        userDao.delete(user);
+    }
+</code></pre>
+<h4 id="&#x61D2;&#x52A0;&#x8F7D;&#x7684;&#x914D;&#x7F6E;">&#x61D2;&#x52A0;&#x8F7D;&#x7684;&#x914D;&#x7F6E;</h4>
+<pre><code class="lang-java">&#x5B9E;&#x4F53;&#x7C7B;&#x4E2D;&#x914D;&#x7F6E;
+User&#x4E2D;
+<span class="hljs-meta">@ManyToMany</span>(targetEntity = Role.class,cascade = CascadeType.ALL,fetch=FetchType.EAGER)
+
+Role&#x4E2D;
+<span class="hljs-meta">@ManyToMany</span>(mappedBy = <span class="hljs-string">&quot;roles&quot;</span>,fetch=FetchType.EAGER)
+</code></pre>
+<h4 id="&#x4F7F;&#x7528;specification&#x67E5;&#x8BE2;">&#x4F7F;&#x7528;Specification&#x67E5;&#x8BE2;</h4>
+<pre><code class="lang-java">&#x4F8B;&#x5982;&#x8981;&#x901A;&#x8FC7;role&#x67E5;&#x8BE2;&#x6307;&#x5B9A;&#x59D3;&#x540D;&#x7684;user
+<span class="hljs-number">1</span>.&#x521B;&#x5EFA;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;Specification
+<span class="hljs-number">2</span>.Join&lt;Role, User&gt; join  join&#x9009;&#x62E9;&#x8FDE;&#x63A5;&#x65B9;&#x5F0F;
+<span class="hljs-comment">//JoinType.LEFT : &#x5DE6;&#x5916;&#x8FDE;&#x63A5;,JoinType.INNER&#xFF1A;&#x5185;&#x8FDE;&#x63A5;,JoinType.RIGHT&#xFF1A;&#x53F3;&#x5916;&#x8FDE;&#x63A5;</span>
+<span class="hljs-number">3</span>.cb&#x6267;&#x884C;&#x6A21;&#x7CCA;&#x67E5;&#x8BE2;
+
+
+ <span class="hljs-meta">@Test</span>
+    <span class="hljs-meta">@Transactional</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testSpecificationByName</span><span class="hljs-params">()</span></span>{
+       Specification&lt;Role&gt; specification = <span class="hljs-keyword">new</span> Specification&lt;Role&gt;() {
+           <span class="hljs-meta">@Override</span>
+           <span class="hljs-function"><span class="hljs-keyword">public</span> Predicate <span class="hljs-title">toPredicate</span>
+                   <span class="hljs-params">(Root&lt;Role&gt; root, CriteriaQuery&lt;?&gt; criteriaQuery, CriteriaBuilder cb)</span> </span>{
+               Join&lt;Role, User&gt; join = root.join(<span class="hljs-string">&quot;users&quot;</span>, JoinType.INNER);
+               <span class="hljs-keyword">return</span> cb.like(join.get(<span class="hljs-string">&quot;username&quot;</span>),<span class="hljs-string">&quot;%&#x738B;%&quot;</span>);
+
+           }
+       };
+
+        List&lt;Role&gt; list = roleDao.findAll(specification);
+        System.out.println(list);
+    }
+</code></pre>
+<script type="text/javascript">var className='atoc';</script>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="SpringBoot.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: SpringBoot">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"SpringDataJPA","level":"1.3.2","depth":2,"previous":{"title":"SpringBoot","level":"1.3.1","depth":2,"path":"Spring/SpringBoot.md","ref":"Spring/SpringBoot.md","articles":[]},"dir":"ltr"},"config":{"plugins":["chapter-fold","copy-code-button","atoc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"livereload":{},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"Spring/SpringDataJPA.md","mtime":"2019-06-29T03:48:53.865Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-29T03:49:02.926Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-atoc/atoc.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
